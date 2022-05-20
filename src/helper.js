@@ -2,36 +2,46 @@ export const getCardData = (arr) => {
   const totalItems = arr.length;
 
   // Getting unique values from field/coulmn
-  const uniqueItems = [...new Set(arr)];
+  const uniqueItems = new Set(arr);
 
-  var fieldPercentage = [];
+  let fieldPercentages = [];
 
   // Calculating percentage of unique value from all the data
-  uniqueItems.forEach((item) => {
-    const numItems = arr.filter((val) => val === item);
-    fieldPercentage.push({
-      title: item,
-      percentage: ((numItems.length * 100) / totalItems).toFixed(2),
+  const itemsMap = {};
+  arr.forEach((item) => {
+    if (itemsMap[item]) {
+      ++itemsMap[item];
+    } else {
+      itemsMap[item] = 1;
+    }
+  });
+
+  Object.keys(itemsMap).forEach((key) => {
+    fieldPercentages.push({
+      title: key,
+      percentage: ((itemsMap[key] * 100) / totalItems).toFixed(2),
     });
   });
 
   // Sorting data based on percentage value
-  fieldPercentage = fieldPercentage.sort((a, b) => b.percentage - a.percentage);
+  fieldPercentages = fieldPercentages.sort(
+    (a, b) => b.percentage - a.percentage
+  );
 
   const otherCount = arr.filter(
     (val) =>
-      val !== fieldPercentage[0].title && val !== fieldPercentage[1].title
+      val !== fieldPercentages[0].title && val !== fieldPercentages[1].title
   );
 
   const fieldData = {
     detailCardData: {
-      fieldPercentage: fieldPercentage.slice(0, 2),
+      fieldPercentages: fieldPercentages.slice(0, 2),
       otherCount: otherCount.length,
       otherPercentage: ((otherCount.length * 100) / totalItems).toFixed(2),
     },
     progressCardData: {
       uniqueCount: uniqueItems.length,
-      commonItem: fieldPercentage[0],
+      commonItem: fieldPercentages[0],
       totalItems: totalItems,
     },
   };
@@ -45,11 +55,15 @@ export const findProgressInfo = (colVal) => {
   let missing = 0;
   let valid = 0;
 
-  // checking for mismatched & missing values 
+  // checking for mismatched & missing values
   colVal.forEach((item) => {
-    if (!item) missing += 1;
-    else if (typeof item !== fieldType) mismatched += 1;
-    else valid += 1;
+    if (!item || !item.trim()) {
+      missing += 1;
+    } else if (typeof item !== fieldType) {
+      mismatched += 1;
+    } else {
+      valid += 1;
+    }
   });
 
   return {

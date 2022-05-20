@@ -1,13 +1,14 @@
-.main-container{
+.main-container {
     width: '100%';
     border-bottom: 1px solid lightgray;
 }
-.card-container{
+
+.card-container {
     display: flex;
     justify-content: space-between;
 }
 
-.detail-container{
+.detail-container {
     width: 48%;
     margin-right: 30px;
 }
@@ -19,13 +20,13 @@
     text-align: left;
 }
 
-.description{
+.description {
     font-size: 14px;
     text-align: left;
     margin-bottom: 5px;
 }
 
-.other-data{
+.other-data {
     font-size: 14px;
     color: grey;
 }
@@ -38,7 +39,7 @@
     width: 50%;
 }
 
-.title-text{
+.title-text {
     font-size: 13px;
     font-weight: 600;
     vertical-align: text-top;
@@ -46,25 +47,25 @@
     text-decoration-line: underline;
 }
 
-.box{
+.box {
     height: 12px;
     width: 12px;
     border: 0.5px solid grey;
     margin-left: 8px;
 }
 
-.valid{
+.valid {
     background-color: #198754;
 }
 
-.mismatched{
+.mismatched {
     background-color: #ffc107;
 }
 
-.missing{
+.missing {
     background-color: #dc3545;
 }
 
-.progress-box{
+.progress-box {
     width: 90%;
 }

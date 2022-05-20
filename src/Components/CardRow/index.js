@@ -11,6 +11,7 @@ const CardRow = ({ cardInfo, rows }) => {
   const getDetails = () => {
     let cardDetail = [];
     let progressInfo = [];
+
     cardInfo.forEach((field) => {
       // Extracting a coulmn/field from all rows
       let fieldData = rows?.map((item) => item[field.title]);
@@ -40,7 +41,7 @@ const CardRow = ({ cardInfo, rows }) => {
             <div className="title">
               <span className="title-text">A</span> {item?.title}
             </div>
-            <div className="description ">{item?.description}</div>
+            <div className="description">{item?.description}</div>
             <div className="card-container">
               <DetailCard
                 details={item}

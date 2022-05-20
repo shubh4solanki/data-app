@@ -36,11 +36,11 @@ function App() {
     // Fetching Data From CSV File
     const response = await fetch(DataFile);
     const reader = response.body.getReader();
-    const result = await reader.read(); 
+    const result = await reader.read();
     const decoder = new TextDecoder("utf-8");
     const csv = decoder.decode(result.value);
-    const results = Papa.parse(csv, { header: true }); 
-    const rows = results.data; 
+    const results = Papa.parse(csv, { header: true });
+    const rows = results.data;
     // array of objects of rows
     setRows(rows);
   }
