@@ -1,0 +1,70 @@
+.main-container{
+    width: '100%';
+    border-bottom: 1px solid lightgray;
+}
+.card-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-container{
+    width: 48%;
+    margin-right: 30px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.description{
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.other-data{
+    font-size: 14px;
+    color: grey;
+}
+
+.percentage {
+    color: #33A2FF
+}
+
+.progress-container {
+    width: 50%;
+}
+
+.title-text{
+    font-size: 13px;
+    font-weight: 600;
+    vertical-align: text-top;
+    margin-right: 5px;
+    text-decoration-line: underline;
+}
+
+.box{
+    height: 12px;
+    width: 12px;
+    border: 0.5px solid grey;
+    margin-left: 8px;
+}
+
+.valid{
+    background-color: #198754;
+}
+
+.mismatched{
+    background-color: #ffc107;
+}
+
+.missing{
+    background-color: #dc3545;
+}
+
+.progress-box{
+    width: 90%;
+}
